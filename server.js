@@ -2,18 +2,26 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
+const cookieSession = require('cookie-session');
+
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ["goddog"],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // PG database client/connection setup
-const { Pool } = require('pg');
+const { Client } = require('pg');
 const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
+const db = new Client(dbParams);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -49,6 +57,14 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get('/login/:id', (req, res) => {
+  console.log("req.params", req.params);
+
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
