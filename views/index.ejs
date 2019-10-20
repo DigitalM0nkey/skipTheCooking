@@ -8,16 +8,30 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<<<<<<< HEAD
   <!-- Style Sheets -->
+=======
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato&display=swap" rel="stylesheet">
+
+
+>>>>>>> cc38e4f9f5caf3dff293300a5c5662b8612efccc
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/all-products.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/shopping-cart.css" type="text/css" />
 
 <!-- Scripts -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/5951c80bc7.js" crossorigin="anonymous"></script>
+
+
 </head>
 
 <!--  NAVBAR  -->
@@ -38,18 +52,94 @@
 <body>
   <main class='container'>
 
+    <!-- LEFT -->
 
     <div class="container-fluid left-sidebar">
-      I'm a left div <h2>Pies & Fries</h2>
-      <h3>By Lloyd & Terrence</h3>
+
+      <!-- <h5>Pies & Fries</h5>
+      <h6>By Lloyd & Terrence</h5> -->
     </div>
+
+    <!-- MIDDLE -->
+
     <div class="container-fluid main-div">
-      I'm the middle div
+      <h1><i class="fad fa-pie"></i>S <i class="fad fa-plus"></i> <i class="fad fa-french-fries"></i>S</h1>
+      <section class="product-container">
+        <!-- New products will populate here -->
+
+
+        <div class="image">
+          <img src="https://img.taste.com.au/LFTcg4ad/w643-h428-cfill-q90/taste/2016/11/aussie-meat-pies-16289-1.jpeg"
+            width="100%">
+        </div>
+
+        <article>
+          <header>
+            <div class="title">
+              Aussie Meat Pie
+            </div>
+            <div class="price">
+              $7.50
+            </div>
+          </header>
+          <div class="discription">
+            <p>An Aussie icon, this classic pie is made with a shortcrust base and a rich beef mince gravy.</p>
+          </div>
+        </article>
+        <div>
+          <footer>
+            <!-- FOOTER -->
+            <div>
+              <i class="fad fa-heart"></i>
+              <i class="fad fa-shopping-cart"></i>
+            </div>
+          </footer>
+        </div>
+      </section>
 
     </div>
+
+    <!-- RIGHT -->
+
     <div class="container-fluid right-sidebar">
-      Umm, I'm the right div
-      <button type="button" class="btn btn-primary">Hello</button>
+      <i class="fad fa-shopping-cart"></i> Shopping Cart
+      <div class="shopping-cart">
+
+        <article class="order">
+          <div class="item">
+            <h6>Meat Pie</h6>
+            <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
+          </div>
+          <div class="item">
+            <h6>French Fries</h6>
+            <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
+          </div>
+          <div class="item">
+            <h6>Gravy</h6>
+            <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
+          </div>
+        </article>
+
+        <div class="total">
+          <p> TOTAL <i class="fad fa-dollar-sign"></i>12.75</p>
+        </div>
+
+
+        <button type="button" class="btn btn-secondary btn-block"><i class="fad fa-cash-register"></i>
+          PAY</button>
+
+        <div class="form-check notify">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <i class="fad fa-bell"></i>
+          <label class="form-check-label" for="defaultCheck1">
+            NOTIFY ME
+          </label>
+        </div>
+
+      </div>
+      <!-- Umm, I'm the right div
+      <button type="button" class="btn btn-primary">Hello</button> -->
+
     </div>
 
   </main>

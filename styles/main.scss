@@ -1,21 +1,80 @@
+// COLORS
+$color-red: #f34a6a;
+$color-orange: #f89958;
+$color-blue: #446279;
+$color-green: #5DA68F;
+$color-yellow: #f4eeb0;
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
 // No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+
 .left-sidebar {
-  background-color: #5DA68F;
+@include breakpoint(xs) {
+  //display: none;
 }
+  @include breakpoint(sm){
+    //display: block;
+  }
+  @include breakpoint(md) {
+    display: block;
+  }
+  display: none;
+  background-color: $color-green;
+}
+
 .right-sidebar {
-  background-color: #5DA68F;
+  @include breakpoint (sm) {
+  display: block;
+  }
+  @include breakpoint(md) {
+   // display: block;
+  }
+  display: none;
+  padding: 1rem;
+ background-color: $color-green;
 }
+
+H1 {
+  text-align-last: center;
+}
+
 
 .main-div {
   background-color: #F4EEB0;
   width: 150rem;
 }
+
+
 .container {
   display: inline-flex;
   max-width: -webkit-fill-available;
   margin: none;
-
+  // @include media-breakpoint-up(md) {
+  //  }
 }
+
+
 
 body {
   margin: none;
@@ -34,3 +93,5 @@ body {
 //     display: block;
 //   }
 // }
+
+
