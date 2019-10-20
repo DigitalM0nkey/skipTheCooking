@@ -1,4 +1,8 @@
+$navbartextcolor: #F4EEB0;
+$navbarbackground: #446279;
 
-#navbar {
-  background-color: 446279;
+nav {
+  background-color: $navbarbackground;
+  color: $navbartextcolor;
 }
+

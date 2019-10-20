@@ -1,0 +1,25 @@
+.left-sidebar {
+  background-color: #5DA68F;
+}
+
+.right-sidebar {
+  background-color: #5DA68F;
+}
+
+.main-div {
+  background-color: #F4EEB0;
+  width: 150rem;
+}
+
+.container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: -webkit-fill-available;
+  margin: none;
+}
+
+body {
+  margin: none;
+}
+/*# sourceMappingURL=main.css.map */
