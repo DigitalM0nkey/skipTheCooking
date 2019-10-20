@@ -1,9 +1,17 @@
+// COLORS
+$color-red: #f34a6a;
+$color-orange: #f89958;
+$color-blue: #446279;
+$color-green: #5DA68F;
+$color-yellow: #f4eeb0;
+
+
 // No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
 .left-sidebar {
-  background-color: #5DA68F;
+  background-color: $color-green;
 }
 .right-sidebar {
-  background-color: #5DA68F;
+  background-color: $color-green;
 }
 
 .main-div {

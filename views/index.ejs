@@ -7,14 +7,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato&display=swap" rel="stylesheet">
+
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/all-products.css" type="text/css" />
 
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/5951c80bc7.js" crossorigin="anonymous"></script>
+
+
 </head>
 
 <!-- NAV BAR----------------->
@@ -62,15 +72,55 @@
 <body>
   <main class='container'>
 
+    <!-- LEFT -->
 
     <div class="container-fluid left-sidebar">
-      I'm a left div <h2>Pies & Fries</h2>
+      <h1><i class="fad fa-pie"></i>'s & <i class="fad fa-french-fries"></i>'s</h1>
+      <h2>Pies & Fries</h2>
       <h3>By Lloyd & Terrence</h3>
     </div>
+
+    <!-- MIDDLE -->
+
     <div class="container-fluid main-div">
-      I'm the middle div
+
+      <section class="product-container">
+        <!-- New products will populate here -->
+
+
+        <div class="image">
+          <img src="https://img.taste.com.au/LFTcg4ad/w643-h428-cfill-q90/taste/2016/11/aussie-meat-pies-16289-1.jpeg"
+            width="100%">
+        </div>
+
+        <article>
+          <header>
+            <div class="title">
+              Aussie Meat Pie
+            </div>
+            <div class="price">
+              $7.50
+            </div>
+          </header>
+          <div class="discription">
+            <p>An Aussie icon, this classic pie is made with a shortcrust base and a rich beef mince gravy.</p>
+          </div>
+        </article>
+        <div>
+          <footer>
+            <!-- FOOTER -->
+            <div>
+              <i class="fad fa-heart"></i>
+              <i class="fad fa-shopping-cart"></i>
+            </div>
+          </footer>
+        </div>
+      </section>
 
     </div>
+
+    <!-- RIGHT -->
+
     <div class="container-fluid right-sidebar">
       Umm, I'm the right div
       <button type="button" class="btn btn-primary">Hello</button>

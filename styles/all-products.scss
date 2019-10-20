@@ -1,0 +1,56 @@
+
+$padding: 2rem;
+$margin: 2rem;
+$primary-font: 'Lato', sans-serif;
+$secondary-font: 'Indie Flower', cursive;
+
+// COLORS
+$color-red: #f34a6a;
+$color-orange: #f89958;
+$color-blue: #446279;
+$color-green: #5DA68F;
+$color-yellow: #f4eeb0;
+
+.product-container {
+  font-family: $primary-font;
+  margin: $margin;
+  padding: $padding;
+  border-radius: 3rem;
+  background-color: $color-orange;
+}
+
+img {
+  border-radius: 1rem;
+  // margin-bottom: $margin;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.discription {
+  font-family: $secondary-font
+}
+
+
+
+.fa-heart:hover {
+  font-size: 2rem;
+}
+.fa-shopping-cart:hover {
+  font-size: 2rem;
+}
+
+
+
