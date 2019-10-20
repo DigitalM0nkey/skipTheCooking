@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/all-products.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/shopping-cart.css" type="text/css" />
 
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -122,8 +123,44 @@
     <!-- RIGHT -->
 
     <div class="container-fluid right-sidebar">
+      <i class="fad fa-shopping-cart"></i> Shopping Cart
+      <div class="shopping-cart">
+
+        <article class="order">
+          <div class="item">
+            <h6>Meat Pie</h6>
+            <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
+          </div>
+          <div class="item">
+            <h6>French Fries</h6>
+            <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
+          </div>
+          <div class="item">
+            <h6>Gravy</h6>
+            <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
+          </div>
+        </article>
+
+        <div class="total">
+          <p> TOTAL <i class="fad fa-dollar-sign"></i>12.75</p>
+        </div>
+
+
+        <button type="button" class="btn btn-secondary btn-block"><i class="fad fa-cash-register"></i>
+          PAY</button>
+
+        <div class="form-check notify">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <i class="fad fa-bell"></i>
+          <label class="form-check-label" for="defaultCheck1">
+            NOTIFY ME
+          </label>
+        </div>
+
+      </div>
       <!-- Umm, I'm the right div
       <button type="button" class="btn btn-primary">Hello</button> -->
+
     </div>
 
   </main>

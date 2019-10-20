@@ -1,0 +1,46 @@
+
+$padding: 2rem;
+$margin: 2rem;
+$primary-font: 'Lato', sans-serif;
+$secondary-font: 'Indie Flower', cursive;
+
+// COLORS
+$color-red: #f34a6a;
+$color-orange: #f89958;
+$color-blue: #446279;
+$color-green: #5DA68F;
+$color-yellow: #f4eeb0;
+
+.btn{
+  background-color: $color-red;
+}
+
+.order {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  align-items: center;
+  border-bottom: double;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shopping-cart {
+  font-family: $primary-font;
+  padding: 1rem;
+}
+
+.notify {
+  // display: flex;
+  // justify-content: flex-end;
+}
