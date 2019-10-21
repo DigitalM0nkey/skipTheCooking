@@ -1,13 +1,13 @@
 
-
 //Shopping cart functions
 
 $(document).ready(function() {
+  const arr = [1,2]
 
   //Order total listener
-  // const $cart = $('.shopping-cart');
+
+  //Calculate Order Helper
   const cartTotal = $('#cart-total')
-  const arr = [1,2]
 
   const calcTotal = function(array) {
     let total = 0;
