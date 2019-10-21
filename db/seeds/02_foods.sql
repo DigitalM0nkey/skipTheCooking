@@ -16,7 +16,7 @@ VALUES
 INSERT INTO foods
   (item_name,description,price,image_url,cook_time )
 VALUES
-  ('Scrumptious Apple Pie', "It’s a classic for a reason. Just watch for those big smiles when you announce, 'We’re having apple pie for dessert.'", 9.50 , 'https://images-gmi-pmc.edge-generalmills.com/173da066-c6b4-45dd-9b28-0d459cf6f169.jpg', 20);
+  ('Scrumptious Apple Pie', 'It\’s a classic for a reason. Just watch for those big smiles when you announce, \"We\’re having apple pie for dessert.\"', 9.50 , 'https://images-gmi-pmc.edge-generalmills.com/173da066-c6b4-45dd-9b28-0d459cf6f169.jpg', 20);
 
 INSERT INTO foods
   (item_name,description,price,image_url,cook_time )
