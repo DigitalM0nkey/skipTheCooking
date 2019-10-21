@@ -12,13 +12,14 @@ $(document).ready(function() {
   // });
 
 
-
   // place all products from db onto main page
-  const renderProducts = function(products) {
-    console.log(products);
 
-    products.forEach(element => {
-      return $('.product-container').append(createProductElement(element));
+  const renderProducts = function(products) {
+    products.forEach(item => {
+      const el = createProductElement(item)
+
+      $('.product-container').append(el)
+      $(`#${item.id}.shopping-add`).click(() => console.log("item object", item))
     });
   };
   // Create indervidule products
@@ -31,7 +32,7 @@ $(document).ready(function() {
     const description = product.description;
 
     const markup = `
-    <section class="product-card">
+    <section class="product-card" >
       <div class="image">
       <img src=${image_url} width="100%">
     </div>
@@ -53,7 +54,9 @@ $(document).ready(function() {
         <!-- FOOTER -->
         <div>
           <i class="fad fa-heart"></i>
-          <iinput class="fad fa-shopping-cart" id="shopping-add" type="submit"></i>
+          <div id="${product.id}" class="shopping-add" >
+          <i class="fad fa-shopping-cart" > </i>
+          </div>
         </div>
       </footer>
     </div>
@@ -119,7 +122,6 @@ $(document).ready(function() {
   // });
 
   loadProducts();
-
 
 
 
