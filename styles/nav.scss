@@ -6,3 +6,19 @@ nav {
   color: $navbartextcolor;
 }
 
+#login-submit {
+  background-color: $navbartextcolor;
+  font-family: inherit;
+  border-radius: 8px;
+  color: $navbarbackground;
+  width: 5em;
+  height: 2.75em;
+  &:hover {
+    transform: translateY(2.5px);
+  }
+}
+
+.navbar-toggler-icon {
+  color: $navbartextcolor;
+  background-color: $navbartextcolor;
+}

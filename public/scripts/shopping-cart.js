@@ -2,7 +2,7 @@
 //Shopping cart functions
 
 $(document).ready(function() {
-  const arr = [1,2]
+  const arr = [7.50,4,1.25]
 
   //Order total listener
 

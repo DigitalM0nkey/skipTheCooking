@@ -30,7 +30,7 @@ $(document).ready(function() {
     const item_name = product.item_name;
     const price = product.price;
     const description = product.description;
-
+    // <i class="fad fa-heart"></i>  storing heart from HTML
     const markup = `
     <section class="product-card" >
       <div class="image">
@@ -53,15 +53,17 @@ $(document).ready(function() {
       <footer>
         <!-- FOOTER -->
         <div>
-          <i class="fad fa-heart"></i>
+
           <div id="${product.id}" class="shopping-add" >
-          <i class="fad fa-shopping-cart" > </i>
+          Add item to cart: <i class="fad fa-shopping-cart" > </i>
           </div>
         </div>
       </footer>
     </div>
     </section>
     `;
+
+
     $($product).append(markup);
     return $product;
   };
