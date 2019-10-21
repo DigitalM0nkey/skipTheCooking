@@ -18,7 +18,9 @@ nav {
   }
 }
 
-.navbar-toggler-icon {
-  color: $navbartextcolor;
-  background-color: $navbartextcolor;
+.fa-hamburger {
+  // background-color: $navbartextcolor;
+  &:hover {
+    transform: translateY(1.5px);
+  }
 }
