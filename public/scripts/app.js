@@ -19,7 +19,7 @@ $(document).ready(function() {
       const el = createProductElement(item)
 
       $('.product-container').append(el)
-      $(`#${item.id}.shopping-add`).click(() => console.log("item object", item))
+      $(`#${item.id}.shopping-add`).click(() => console.log("item object", item)) //event handler for each card
     });
   };
   // Create indervidule products
@@ -80,16 +80,7 @@ $(document).ready(function() {
       });
   };
 
-  // const loadProduct = function() {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: '/api/foods',
-  //     dataType: 'json'
-  //   })
-  //     .then(function(results) {
-  //       renderProducts([results[results.length - 1]]);
-  //     });
-  // };
+  const renderShoppingBasket =
 
 
   // // AJAX POST /products
