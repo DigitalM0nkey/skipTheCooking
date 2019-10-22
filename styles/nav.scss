@@ -49,8 +49,15 @@ nav {
   }
   background-color: $color-blue;
   color: $color-yellow;
+
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+}
 
 .fa-hamburger {
   color: $color-yellow;
