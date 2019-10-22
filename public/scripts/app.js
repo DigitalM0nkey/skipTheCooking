@@ -1,3 +1,8 @@
+// import { SSL_OP_COOKIE_EXCHANGE } from "constants";
+
+// const cookieSession = require('cookie-session');
+
+
 $(document).ready(function() {
 
   // $(() => {
@@ -19,7 +24,7 @@ $(document).ready(function() {
       const el = createProductElement(item)
 
       $('.product-container').append(el)
-      $(`#${item.id}.shopping-add`).click(() => console.log("item object", item)) //event handler for each card
+      $(`#${item.id}.shopping-add`).click(() => addItemToCart(item.id)) //event handler for each card
     });
   };
   // Create indervidule products
@@ -82,7 +87,7 @@ $(document).ready(function() {
       });
   };
 
-  const renderShoppingBasket =
+
 
 
   // // AJAX POST /products
@@ -115,6 +120,38 @@ $(document).ready(function() {
   // });
 
   loadProducts();
+
+  //Shopping Basket
+
+  const renderShoppingBasket = function(item) {
+
+    const markup = `
+      <article class="order">
+        <div class="item">
+          <h6>${item.name}</h6>
+          <h6><i class="fad fa-dollar-sign"></i>${item.price}</h6>
+          </div>
+      </article>
+      `
+
+    }
+
+  const addItemToCart = function(itemId) {
+    let shoppingCart = [itemId];
+    // cookieSession.set('shoppingCart', shoppingCart, { signed: true })
+
+
+    // $.post('/shopping-add', itemId)
+    // .then((response) => console.log("response: ", response))
+    // $.ajax({
+    //   method: "POST",
+    //   url: '/shopping-add',
+    //   dataType: 'json',
+    //   data: itemId
+    // })
+    // .then()
+
+  }
 
 
 

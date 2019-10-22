@@ -44,15 +44,17 @@ $color-yellow: #f4eeb0;
 }
 
 .right-sidebar {
+  margin: 80px auto 0;
+
   @include breakpoint (sm) {
   display: block;
   }
   @include breakpoint(md) {
    // display: block;
   }
-  display: none;
+
   padding: 1rem;
- background-color: $color-green;
+  background-color: $color-green;
 }
 
 H1 {

@@ -62,12 +62,19 @@ app.get("/", (req, res) => {
 });
 
 app.get('/login/:id', (req, res) => {
-  console.log("req.params", req.params);
 
   req.session.user_id = req.params.id;
   res.redirect('/');
 });
 
+app.post("/shopping-add", (req, res) => {
+
+  console.log("req.session", req.session)
+  console.log("req", req)
+
+  // let req.session.array = itemId;
+  return res;
+  });
 
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);

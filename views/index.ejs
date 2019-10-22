@@ -30,19 +30,19 @@
 </head>
 
 <!--  NAVBAR  -->
-<nav id="navbar" class="navbar navbar-expand-lg">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+<nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fad fa-hamburger" class="navbar-toggler-icon"></i>
-  </button>
-  <header class="navbar-brand" href="#">SkipTheCooking </header>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    </ul>
-    <form action="/login/1" method="get">
-      <button id="login-submit" type="submit">Login</button>
-    </form>
-  </div>
+    </button>
+    <header class="navbar-brand" href="#">SkipTheCooking </header>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     </ul>
+      <form action="/login/1" method="get">
+        <button id="login-submit" type="submit">Login</button>
+      </form>
+    </div>
 </nav>
 
 <!--  START BODY------------------->
@@ -69,31 +69,16 @@
           </div>
 
           <!-- RIGHT -->
-
           <div class="container-fluid right-sidebar">
+
             <i class="fad fa-shopping-cart"></i> Shopping Cart
             <div class="shopping-cart">
-              <article class="order">
-                <div class="item">
-                  <h6>Meat Pie</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
-                </div>
-                <div class="item">
-                  <h6>French Fries</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
-                </div>
-                <div class="item">
-                  <h6>Gravy</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
-                </div>
-              </article>
 
               <div class="total">
                 <p> TOTAL $
                   <em id="cart-total"></em></p>
               </div>
-
-
+<!-- END Dyanamic Cart -->
               <button type="button" class="btn btn-secondary btn-block"><i class="fad fa-cash-register"></i>
                 PAY</button>
 
@@ -106,8 +91,6 @@
               </div>
 
             </div>
-            <!-- Umm, I'm the right div
-      <button type="button" class="btn btn-primary">Hello</button> -->
 
           </div>
 
