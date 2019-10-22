@@ -37,7 +37,7 @@ $color-yellow: #f4eeb0;
     //display: block;
   }
   @include breakpoint(md) {
-    display: block;
+    //display: block;
   }
   display: none;
   background-color: $color-green;
@@ -51,6 +51,7 @@ $color-yellow: #f4eeb0;
   @include breakpoint(md) {
    // display: block;
   }
+  width: 75rem;
   display: none;
   padding: 1rem;
  background-color: $color-green;
