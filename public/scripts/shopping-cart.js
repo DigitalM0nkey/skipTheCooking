@@ -23,6 +23,7 @@ $(document).ready(function() {
 
   $("#pay").click(function() {
     $.post('/send_sms');
+    alert('ORDER RECEIVED');
   });
 
 

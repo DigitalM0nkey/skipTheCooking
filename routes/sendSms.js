@@ -9,13 +9,13 @@ const orderReceivedMessage = `SkipTheCooking thanks you from you order from 🥧
 
 
 const sendMessage = function() {
-  return client.messages
+  client.messages
     .create({
       body: orderReceivedMessage,
       from: process.env.DEV_OUTGOING_PHONE_NUMBER,
-      to: process.env.DEV_TEST_PHONE_NUMBER
+      to: process.env.TEST_PHONE_NUMBER
     })
-    .then((message) => console.log(message.sid))
+    .then(message => console.log(message.sid))
     .catch(err => console.log('ERROR', err));
 };
 

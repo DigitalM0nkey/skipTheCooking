@@ -55,8 +55,8 @@ app.use("/api/widgets", widgetsRoutes(db));
 //app.use("/send_sms", sendSms.sendMessage());
 // Note: mount other resources here, using the same pattern above
 
-app.post("/send_sms", (req, res) => {
-  return sendSms.sendMessage();
+app.post("/send_sms", () => {
+  sendSms.sendMessage();
 });
 // Home page
 // Warning: avoid creating more routes in this file!
