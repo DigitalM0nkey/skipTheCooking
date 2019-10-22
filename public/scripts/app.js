@@ -79,12 +79,15 @@ $(document).ready(function() {
 
   $(function() {
     const rb = $(".rb");
-    const clickable = $(".clickable");
+    const lb = $(".lb");
+    //const clickable = $(".clickable");
     $(".button").on("click", function() {
       if (!rb.is(":visible")) {
-        rb.show().addClass("clickable");
+        rb.show();
+        // lb.show();
       } else {
         rb.hide();
+        lb.hide();
       }
     });
   });
