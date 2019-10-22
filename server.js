@@ -71,13 +71,15 @@ app.get('/login/:id', (req, res) => {
   res.redirect('/');
 });
 
-app.post("/shopping-add", (req, res) => {
-
-  console.log("req.session", req.session)
-  console.log("req", req)
-
-  // let req.session.array = itemId;
-  return res;
+app.post("/addToCart", (req, res) => {
+  if (req.session.cart === undefined) {
+    req.session.cart = req.body.itemId;
+  } else {
+    let cart = req.session.cart.concat(req.body.itemId)
+    req.session.cart = cart;
+  }
+  console.log("req session after all funcs: ", req.session.cart)
+  res.json({"cart": req.session.cart});
   });
 
 app.listen(PORT, () => {

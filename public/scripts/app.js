@@ -115,21 +115,15 @@ $(document).ready(function() {
   loadProducts();
 
   const addItemToCart = function(itemId) {
-    let shoppingCart = [];
-    shoppingCart.push(itemId)
+    let shoppingCart = {
+      itemId: [itemId]
+    };
     console.log(shoppingCart);
-    // cookieSession.set('shoppingCart', shoppingCart, { signed: true })
 
+    $.post('/addToCart', shoppingCart, (response) => {
+      console.log(response);
+    })
+    .then((response) => console.log("response: ", response))
 
-    // $.post('/shopping-add', itemId)
-    // .then((response) => console.log("response: ", response))
-    // $.ajax({
-    //   method: "POST",
-    //   url: '/shopping-add',
-    //   dataType: 'json',
-    //   data: itemId
-    // })
-    // .then()
   }
-
 });

@@ -20,7 +20,6 @@ $color-yellow: #f4eeb0;
   // flex-direction: row;
   // justify-content: space-between;
   align-items: center;
-  border-bottom: double;
 }
 
 .item {
@@ -38,6 +37,7 @@ $color-yellow: #f4eeb0;
 .shopping-cart {
   font-family: $primary-font;
   padding: 1rem;
+  border-bottom: double;
 }
 
 .notify {
