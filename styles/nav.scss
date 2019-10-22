@@ -37,22 +37,24 @@ $color-yellow: #f4eeb0;
 
 nav {
 @include breakpoint(xs) {
-  height: 3rem;
+  // height: 3rem;
   align-content: center;
 }
   @include breakpoint(sm){
-    height: 3rem;
+    // height: 3rem;
     align-content: center;
   }
   @include breakpoint(md) {
-    height: 4rem;
+    // height: 4rem;
   }
   background-color: $color-blue;
   color: $color-yellow;
 }
 
 
-
+.fa-hamburger {
+  color: $color-yellow;
+}
 
 
 
