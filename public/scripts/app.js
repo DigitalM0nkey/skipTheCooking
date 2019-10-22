@@ -1,6 +1,4 @@
-// import { SSL_OP_COOKIE_EXCHANGE } from "constants";
 
-// const cookieSession = require('cookie-session');
 
 
 $(document).ready(function() {
@@ -21,13 +19,13 @@ $(document).ready(function() {
 
   const renderProducts = function(products) {
     products.forEach(item => {
-      const el = createProductElement(item)
+      const el = createProductElement(item);
 
       $('.product-container').append(el)
       $(`#${item.id}.shopping-add`).click(() => addItemToCart(item.id)) //event handler for each card
     });
   };
-  // Create indervidule products
+  // Create individual products
   const createProductElement = function(product) {
     const $product = $("<article>").addClass("all-products");
 
@@ -36,6 +34,7 @@ $(document).ready(function() {
     const price = product.price;
     const description = product.description;
     // <i class="fad fa-heart"></i>  storing heart from HTML
+
     const markup = `
     <section class="product-card" >
       <div class="image">
@@ -74,14 +73,8 @@ $(document).ready(function() {
   };
 
   // AJAX GET /products
-
-  // AJAX GET /tweets
   const loadProducts = function() {
-    $.ajax({
-      method: "GET",
-      url: '/api/foods',
-      dataType: 'json'
-    })
+    $.get('/api/foods')
       .then(function(results) {
         renderProducts(results.products);
       });
@@ -121,23 +114,10 @@ $(document).ready(function() {
 
   loadProducts();
 
-  //Shopping Basket
-
-  const renderShoppingBasket = function(item) {
-
-    const markup = `
-      <article class="order">
-        <div class="item">
-          <h6>${item.name}</h6>
-          <h6><i class="fad fa-dollar-sign"></i>${item.price}</h6>
-          </div>
-      </article>
-      `
-
-    }
-
   const addItemToCart = function(itemId) {
-    let shoppingCart = [itemId];
+    let shoppingCart = [];
+    shoppingCart.push(itemId)
+    console.log(shoppingCart);
     // cookieSession.set('shoppingCart', shoppingCart, { signed: true })
 
 
@@ -150,9 +130,6 @@ $(document).ready(function() {
     //   data: itemId
     // })
     // .then()
-
   }
-
-
 
 });

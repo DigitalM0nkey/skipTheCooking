@@ -44,6 +44,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const foodsRoutes = require("./routes/foods");
+const sendSms = require("./routes/sendSms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,9 +52,12 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/foods", foodsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+//app.use("/send_sms", sendSms.sendMessage());
 // Note: mount other resources here, using the same pattern above
 
-
+app.post("/send_sms", (req, res) => {
+  return sendSms.sendMessage();
+});
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
