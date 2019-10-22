@@ -46,6 +46,7 @@ $color-yellow: #f4eeb0;
 .right-sidebar {
   @include breakpoint (sm) {
   display: block;
+
   }
   @include breakpoint(md) {
    // display: block;
@@ -53,7 +54,10 @@ $color-yellow: #f4eeb0;
   display: none;
   padding: 1rem;
  background-color: $color-green;
+
 }
+
+
 
 H1 {
   text-align-last: center;

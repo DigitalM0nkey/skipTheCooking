@@ -64,6 +64,7 @@ $(document).ready(function() {
     `;
 
 
+
     $($product).append(markup);
     return $product;
   };
@@ -76,7 +77,17 @@ $(document).ready(function() {
       });
   };
 
-
+  $(function() {
+    const rb = $(".rb");
+    const clickable = $(".clickable");
+    $(".button").on("click", function() {
+      if (!rb.is(":visible")) {
+        rb.show().addClass("clickable");
+      } else {
+        rb.hide();
+      }
+    });
+  });
 
   //const renderShoppingBasket =
 
