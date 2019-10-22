@@ -1,8 +1,10 @@
 
 //Shopping cart functions
+// const { sendMessage } = require('../../routes/send_sms');
+
 
 $(document).ready(function() {
-  const arr = [7.50,4,1.25]
+  const arr = [7.50, 4, 1.25]
 
   //Order total listener
 
@@ -15,6 +17,14 @@ $(document).ready(function() {
       total += array[ele];
     }
     return total;
-  }
+  };
   cartTotal.text(calcTotal(arr));
+
+
+  $("#pay").click(function() {
+    $.post('/send_sms');
+  });
+
+
+
 });

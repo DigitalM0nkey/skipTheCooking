@@ -47,87 +47,114 @@
 
 <!--  START BODY------------------->
 
-      <body>
-        <main class='container'>
+<body>
+  <main class='container'>
 
-          <!-- LEFT -->
+    <!-- LEFT -->
 
-          <div class="container-fluid left-sidebar">
+    <div class="container-fluid left-sidebar">
+    </div>
+
+
+    <!-- MIDDLE -->
+
+    <div class="container-fluid main-div">
+      <h1><i class="fad fa-pie"></i>S <i class="fad fa-plus"></i> <i class="fad fa-french-fries"></i>S</h1>
+
+      <section class="product-container">
+
+        <!-- New products will populate here -->
+      </section>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="container-fluid right-sidebar">
+      <i class="fad fa-shopping-cart"></i> Shopping Cart
+      <div class="shopping-cart">
+        <article class="order">
+          <div class="item">
+            <h6>Meat Pie</h6>
+            <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
+          </div>
+          <div class="item">
+            <h6>French Fries</h6>
+            <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
+          </div>
+          <div class="item">
+            <h6>Gravy</h6>
+            <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
+          </div>
+        </article>
+
+        <div class="total">
+          <p> TOTAL
+            <em id="cart-total"></em></p>
         </div>
 
+        <!-- RIGHT -->
 
-          <!-- MIDDLE -->
+        <div class="container-fluid right-sidebar">
+          <i class="fad fa-shopping-cart"></i> Shopping Cart
+          <div class="shopping-cart">
+            <article class="order">
+              <div class="item">
+                <h6>Meat Pie</h6>
+                <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
+              </div>
+              <div class="item">
+                <h6>French Fries</h6>
+                <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
+              </div>
+              <div class="item">
+                <h6>Gravy</h6>
+                <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
+              </div>
+            </article>
 
-          <div class="container-fluid main-div">
-            <h1><i class="fad fa-pie"></i>S <i class="fad fa-plus"></i> <i class="fad fa-french-fries"></i>S</h1>
+            <div class="total">
+              <p> TOTAL $
+                <em id="cart-total"></em></p>
+            </div>
 
-            <section class="product-container">
 
-              <!-- New products will populate here -->
-            </section>
+            <button type="button" class="btn btn-secondary btn-block"><i class="fad fa-cash-register"></i>
+              PAY</button>
+
+            <div class="form-check notify">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <i class="fad fa-bell"></i>
+              <label class="form-check-label" for="defaultCheck1">
+                NOTIFY ME
+              </label>
+            </div>
 
           </div>
-
-          <!-- RIGHT -->
-
-          <div class="container-fluid right-sidebar">
-            <i class="fad fa-shopping-cart"></i> Shopping Cart
-            <div class="shopping-cart">
-              <article class="order">
-                <div class="item">
-                  <h6>Meat Pie</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>7.50</h6>
-                </div>
-                <div class="item">
-                  <h6>French Fries</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>4.00</h6>
-                </div>
-                <div class="item">
-                  <h6>Gravy</h6>
-                  <h6><i class="fad fa-dollar-sign"></i>1.25</h6>
-                </div>
-              </article>
-
-              <div class="total">
-                <p> TOTAL $
-                  <em id="cart-total"></em></p>
-              </div>
-
-
-              <button type="button" class="btn btn-secondary btn-block"><i class="fad fa-cash-register"></i>
-                PAY</button>
-
-              <div class="form-check notify">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <i class="fad fa-bell"></i>
-                <label class="form-check-label" for="defaultCheck1">
-                  NOTIFY ME
-                </label>
-              </div>
-
-            </div>
-            <!-- Umm, I'm the right div
+          <!-- Umm, I'm the right div
       <button type="button" class="btn btn-primary">Hello</button> -->
 
-          </div>
+        </div>
 
-        </main>
-<!-- Scripts -->
+  </main>
+  <!-- Scripts -->
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/shopping-cart.js"></script>
+  <script type="text/javascript" src="/routes/send_sms.js "></script>
+
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-          crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-          crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 
 
 
-      </body>
+</body>
 
 
 

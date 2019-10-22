@@ -16,9 +16,9 @@ $(document).ready(function() {
 
   const renderProducts = function(products) {
     products.forEach(item => {
-      const el = createProductElement(item)
+      const el = createProductElement(item);
 
-      $('.product-container').append(el)
+      $('.product-container').append(el);
       $(`#${item.id}.shopping-add`).click(() => console.log("item object", item)) //event handler for each card
     });
   };
@@ -69,20 +69,16 @@ $(document).ready(function() {
   };
 
   // AJAX GET /products
-
-  // AJAX GET /tweets
   const loadProducts = function() {
-    $.ajax({
-      method: "GET",
-      url: '/api/foods',
-      dataType: 'json'
-    })
+    $.get('/api/foods')
       .then(function(results) {
         renderProducts(results.products);
       });
   };
 
-  const renderShoppingBasket =
+
+
+  //const renderShoppingBasket =
 
 
   // // AJAX POST /products
