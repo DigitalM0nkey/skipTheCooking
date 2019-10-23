@@ -1,19 +1,16 @@
 
-
+let products = {};
 
 $(document).ready(function() {
 
-  // $(() => {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/api/users"
-  //   }).done((users) => {
-  //     for (user of users.users) {
-  //       $("<div>").text(user.name).appendTo($("body"));
-  //     }
-  //   });
-  // });
-
+  // AJAX GET /products
+  const loadProducts = function() {
+    $.get('/api/foods')
+      .then(function(results) {
+        renderProducts(results.products)
+        products = results.products;
+      });
+  };
 
   // place all products from db onto main page
 
@@ -72,13 +69,7 @@ $(document).ready(function() {
     return $product;
   };
 
-  // AJAX GET /products
-  const loadProducts = function() {
-    $.get('/api/foods')
-      .then(function(results) {
-        renderProducts(results.products);
-      });
-  };
+
 
 
 
@@ -118,12 +109,14 @@ $(document).ready(function() {
     let shoppingCart = {
       itemId: [itemId]
     };
-    console.log(shoppingCart);
 
     $.post('/addToCart', shoppingCart, (response) => {
       console.log(response);
     })
-    .then((response) => console.log("response: ", response))
+    .then((response) => {
+      renderShoppingCart(products, response.cart)
+    })
+    // .then((response) => cartTotal(products, response))
 
   }
 });
