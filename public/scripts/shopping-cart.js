@@ -31,6 +31,7 @@ $(document).ready(function() {
   //Pay helper function
   $("#pay").click(function() {
     $.post('/send_sms');
+    alert('ORDER RECEIVED');
   });
 
   //Shopping Basket =================

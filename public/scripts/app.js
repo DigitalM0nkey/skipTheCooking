@@ -65,12 +65,26 @@ $(document).ready(function() {
     `;
 
 
+
     $($product).append(markup);
     return $product;
   };
 
 
-
+  $(function() {
+    const rb = $(".rb");
+    const lb = $(".lb");
+    //const clickable = $(".clickable");
+    $(".button").on("click", function() {
+      if (!rb.is(":visible")) {
+        rb.show();
+        // lb.show();
+      } else {
+        rb.hide();
+        lb.hide();
+      }
+    });
+  });
 
 
 

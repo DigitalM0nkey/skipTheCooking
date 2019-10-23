@@ -1,16 +1,86 @@
-$navbartextcolor: #F4EEB0;
-$navbarbackground: #446279;
 
-nav {
-  background-color: $navbarbackground;
-  color: $navbartextcolor;
+$padding: 2rem;
+$margin: 2rem;
+$primary-font: 'Lato', sans-serif;
+$secondary-font: 'Indie Flower', cursive;
+
+// COLORS
+$color-red: #f34a6a;
+$color-orange: #f89958;
+$color-blue: #446279;
+$color-green: #5DA68F;
+$color-yellow: #f4eeb0;
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
 }
 
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+
+nav {
+@include breakpoint(xs) {
+  // height: 3rem;
+  align-content: center;
+}
+  @include breakpoint(sm){
+    // height: 3rem;
+    align-content: center;
+  }
+  @include breakpoint(md) {
+    // height: 4rem;
+  }
+  background-color: $color-blue;
+  color: $color-yellow;
+
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+}
+
+.fa-hamburger {
+  color: $color-yellow;
+}
+
+
+
+
+// nav {
+//   background-color: $color-blue;
+//   color: $color-yellow;
+// }
+
+.navbar-brand {
+  font-family: $primary-font;
+}
+
+
 #login-submit {
-  background-color: $navbartextcolor;
+  background-color: $color-yellow;
   font-family: inherit;
   border-radius: 8px;
-  color: $navbarbackground;
+  color: $color-blue;
   width: 5em;
   height: 2.75em;
   &:hover {
@@ -19,7 +89,7 @@ nav {
 }
 
 .fa-hamburger {
-  // background-color: $navbartextcolor;
+  // background-color: $color-yellow;
   &:hover {
     transform: translateY(1.5px);
   }

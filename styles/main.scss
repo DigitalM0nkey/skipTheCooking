@@ -37,7 +37,7 @@ $color-yellow: #f4eeb0;
     //display: block;
   }
   @include breakpoint(md) {
-    display: block;
+    //display: block;
   }
   display: none;
   background-color: $color-green;
@@ -48,13 +48,16 @@ $color-yellow: #f4eeb0;
 
   @include breakpoint (sm) {
   display: block;
+
   }
   @include breakpoint(md) {
    // display: block;
   }
-
+  width: 75rem;
+  display: none;
   padding: 1rem;
-  background-color: $color-green;
+ background-color: $color-green;
+
 }
 
 H1 {
@@ -69,11 +72,13 @@ H1 {
 
 
 .container {
+  padding-top: 75px;
   display: inline-flex;
   max-width: -webkit-fill-available;
-  margin: none;
-  // @include media-breakpoint-up(md) {
-  //  }
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
