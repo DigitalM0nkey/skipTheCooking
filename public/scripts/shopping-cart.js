@@ -6,7 +6,7 @@ let renderShoppingCart;
 
 let renderShoppingCartItem = function(foodsObject, item) {
   console.log("shopping cart item: ", item);
-  let cart = $('.shopping-cart');
+  let cart = $('.shopping-cart-container');
   if (foodsObject[item] === undefined) { debugger };
   let name = foodsObject[item].item_name;
   let price = foodsObject[item].price;
@@ -64,7 +64,7 @@ $(document).ready(function() {
   // };
 
   renderShoppingCart = function(foodsObject, cart) {
-    $('.shopping-cart').empty();
+    $('.shopping-cart-container').empty();
     cart.forEach((element) => {
       renderShoppingCartItem(foodsObject, cart[element - 1]);
     });
