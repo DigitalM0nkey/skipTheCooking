@@ -82,6 +82,15 @@ app.post("/addToCart", (req, res) => {
   res.json({ "cart": req.session.cart });
 });
 
+app.get("/clear-cart", (req, res) => {
+  console.log("clear cart now!")
+  console.log("cart before clear", req.session.cart)
+  req.session.cart = [];
+  res.redirect("/")
+  console.log("cart after clear", req.session.cart)
+
+})
+
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);
 });

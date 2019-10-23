@@ -50,6 +50,12 @@ $color-yellow: #f4eeb0;
   padding: .5rem;
 }
 
+.shopping-cart-header {
+  display: flex;
+  justify-content: space-between;
+  padding-block-end: 1em;
+}
+
 .notify {
   // display: flex;
   // justify-content: flex-end;
