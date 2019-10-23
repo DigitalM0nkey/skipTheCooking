@@ -27,19 +27,19 @@ let cartTotal;
 
 $(document).ready(function() {
 
-  let empty = function isEmpty(foodsObject) {
-    tempvalue = false;
-    for (var key in foodsObject) {
-      if (foodsObject.hasOwnProperty(key))
-        return false;
-    }
-    return true;
-  };
+  // let empty = function isEmpty(foodsObject) {
+  //   tempvalue = false;
+  //   for (var key in foodsObject) {
+  //     if (foodsObject.hasOwnProperty(key))
+  //       return false;
+  //   }
+  //   return true;
+  // };
 
-  // Pay Helper
+  // Display total in navbar
   $(function() {
     const navTotal = $(".navTotal");
-    if (empty) {
+    if ('.cart-total' === 0) {
       navTotal.hide();
     } else {
       navTotal.show();
@@ -47,7 +47,7 @@ $(document).ready(function() {
   });
 
 
-
+  // Send text message when pay button is clicked
   $("#pay").click(function() {
     $.post('/send_sms');
     alert('ORDER RECEIVED');
@@ -96,5 +96,4 @@ $(document).ready(function() {
   };
   // loadProducts();
 });
-
 

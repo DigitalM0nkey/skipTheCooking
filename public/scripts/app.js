@@ -71,10 +71,11 @@ $(document).ready(function() {
   };
 
 
+
+  // SHOW/HIDE right div
   $(function() {
     const rb = $(".rb");
     const lb = $(".lb");
-    //const clickable = $(".clickable");
     $(".button").on("click", function() {
       if (!rb.is(":visible")) {
         rb.show();
