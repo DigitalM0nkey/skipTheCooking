@@ -4,7 +4,7 @@
 
 
 $(document).ready(function() {
-  const arr = [7.50, 4, 1.25]
+  const arr = [23.43, 45];
 
   //Order total listener
 
@@ -19,6 +19,17 @@ $(document).ready(function() {
     return total;
   };
   cartTotal.text(calcTotal(arr));
+
+
+  $(function() {
+    const navTotal = $(".navTotal");
+    if (arr.length === 0) {
+      navTotal.hide();
+    } else {
+      navTotal.show();
+    }
+  });
+
 
 
   $("#pay").click(function() {

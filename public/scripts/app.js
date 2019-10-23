@@ -92,6 +92,13 @@ $(document).ready(function() {
     });
   });
 
+
+
+
+
+
+
+
   //const renderShoppingBasket =
 
 
