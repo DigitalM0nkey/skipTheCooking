@@ -79,8 +79,8 @@ app.post("/addToCart", (req, res) => {
     req.session.cart = cart;
   }
   console.log("req session after all funcs: ", req.session.cart)
-  res.json({"cart": req.session.cart});
-  });
+  res.json({ "cart": req.session.cart });
+});
 
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);
