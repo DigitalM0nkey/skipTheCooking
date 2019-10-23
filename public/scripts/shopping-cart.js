@@ -37,15 +37,18 @@ $(document).ready(function() {
   // };
 
   // Display total in navbar
-  $(function() {
-    const navTotal = $(".navTotal");
-    if ('.cart-total' === 0) {
-      navTotal.hide();
-    } else {
-      navTotal.show();
-    }
-  });
+  const displayTotalInNav = () => {
+    $(function() {
+      const navTotal = $(".navTotal");
+      if ($(".cart-total").text() === "") {
+        navTotal.hide();
+      } else {
+        navTotal.show();
+      }
+    });
+  };
 
+  displayTotalInNav();
 
   // Send text message when pay button is clicked
   $("#pay").click(function() {
@@ -73,7 +76,7 @@ $(document).ready(function() {
   //Calculate Order Helper
   const calcTotal = function(foodsObject, array) {
     let total = 0;
-
+    displayTotalInNav();
     array.forEach(id => {
       const itemValue = foodsObject.find(e => {
         return String(e.id) === String(id)
