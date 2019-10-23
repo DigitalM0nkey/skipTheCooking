@@ -124,9 +124,11 @@ $(document).ready(function() {
     };
 
     $.post('/addToCart', shoppingCart, (response) => {
-      console.log(response);
+      renderShoppingCart(products, response.cart);
+      cartTotal(products, response.cart);
+
     })
-      .then((response) => { renderShoppingCart(products, response.cart)})
-      .then((response) => cartTotal(products, response.cart))
+      // .then((response) => { renderShoppingCart(products, response.cart)})
+      // .then((response) => { cartTotal(products, response.cart) })
   };
 });

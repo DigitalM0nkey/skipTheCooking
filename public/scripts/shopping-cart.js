@@ -47,7 +47,6 @@ $(document).ready(function() {
     }
   });
 
-
   $("#pay").click(function() {
     $.post('/send_sms');
     alert('ORDER RECEIVED');
@@ -71,27 +70,24 @@ $(document).ready(function() {
   }
 
   //Calculate Order Helper
+  const calcTotal = function(foodsObject, array) {
+    let total = 0;
+
+     array.forEach(id => {
+      const itemValue = foodsObject.find(e => {
+      return String(e.id) === String(id)
+    })
+      total += itemValue.price
+     })
+    return $('.cart-total').text( total );
+  };
 
   cartTotal = function(foodsObject, array) {
-    console.log("cartTotal array: ", array);
 
-    const cartTotalTarget = $('#cart-total');
-
-    if (array === null) {
-      cartTotalTarget.text(0);
+    if (array === undefined) {
+      cartTotalTarget.text('0');
     } else {
-
-      const calcTotal = function(array) {
-        let total = 0;
-        console.log("foodsObject: ", foodsObject);
-
-        for (let ele in array) {
-          console.log("calcTotal Array ele: ", array[ele]);
-          total += foodsObject[array[ele]].price;
-        }
-        return total;
-      };
-      // cartTotalTarget.text(calcTotal(array));
+      calcTotal(foodsObject, array);
     }
   };
   // loadProducts();
