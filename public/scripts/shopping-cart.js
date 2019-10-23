@@ -5,9 +5,9 @@
 let renderShoppingCart;
 
 let renderShoppingCartItem = function(foodsObject, item) {
-  console.log("shopping cart item: ", item);
+  item = item - 1; //call the correct object element
+
   let cart = $('.shopping-cart-container');
-  if (foodsObject[item] === undefined) { debugger };
   let name = foodsObject[item].item_name;
   let price = foodsObject[item].price;
 
@@ -37,6 +37,7 @@ $(document).ready(function() {
   };
 
   // Pay Helper
+
   $(function() {
     const navTotal = $(".navTotal");
     if (empty) {
@@ -45,7 +46,6 @@ $(document).ready(function() {
       navTotal.show();
     }
   });
-
 
 
   $("#pay").click(function() {
