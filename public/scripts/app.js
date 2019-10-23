@@ -87,7 +87,6 @@ $(document).ready(function() {
   });
 
 
-
   // // AJAX POST /products
   // $('.new-product-form').submit(function(event) {
   //   const data = $(this).serialize();

@@ -27,8 +27,18 @@ let cartTotal;
 
 $(document).ready(function() {
 
+  // Pay Helper
+  $(function() {
+    const navTotal = $(".navTotal");
+    if (arr.length === 0) {
+      navTotal.hide();
+    } else {
+      navTotal.show();
+    }
+  });
 
-  //Pay helper function
+
+
   $("#pay").click(function() {
     $.post('/send_sms');
     alert('ORDER RECEIVED');
