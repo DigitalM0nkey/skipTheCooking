@@ -5,9 +5,9 @@
 let renderShoppingCart;
 
 let renderShoppingCartItem = function(foodsObject, item) {
-  console.log("shopping cart item: ", item);
+  item = item - 1; //call the correct object element
+
   let cart = $('.shopping-cart-container');
-  if (foodsObject[item] === undefined) { debugger };
   let name = foodsObject[item].item_name;
   let price = foodsObject[item].price;
 
@@ -71,27 +71,24 @@ $(document).ready(function() {
   }
 
   //Calculate Order Helper
+  const calcTotal = function(foodsObject, array) {
+    let total = 0;
+
+    array.forEach(id => {
+      const itemValue = foodsObject.find(e => {
+        return String(e.id) === String(id)
+      })
+      total += itemValue.price
+    })
+    return $('.cart-total').text(total);
+  };
 
   cartTotal = function(foodsObject, array) {
-    console.log("cartTotal array: ", array);
 
-    const cartTotalTarget = $('#cart-total');
-
-    if (array === null) {
-      cartTotalTarget.text(0);
+    if (array === undefined) {
+      cartTotalTarget.text('0');
     } else {
-
-      const calcTotal = function(array) {
-        let total = 0;
-        console.log("foodsObject: ", foodsObject);
-
-        for (let ele in array) {
-          console.log("calcTotal Array ele: ", array[ele]);
-          total += foodsObject[array[ele]].price;
-        }
-        return total;
-      };
-      // cartTotalTarget.text(calcTotal(array));
+      calcTotal(foodsObject, array);
     }
   };
   // loadProducts();
