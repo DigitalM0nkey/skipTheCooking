@@ -5,7 +5,7 @@
 let renderShoppingCart;
 
 let renderShoppingCartItem = function(foodsObject, item) {
-  console.log("shopping cart item: ", item)
+  console.log("shopping cart item: ", item);
   let cart = $('.shopping-cart');
   if (foodsObject[item] === undefined) { debugger };
   let name = foodsObject[item].item_name;
@@ -19,18 +19,27 @@ let renderShoppingCartItem = function(foodsObject, item) {
         </div>
     </article>
     `
-    return cart.prepend(markup);
-  }
+  return cart.prepend(markup);
+};
 
 let cartTotal;
 
 
 $(document).ready(function() {
 
+  let empty = function isEmpty(foodsObject) {
+    tempvalue = false;
+    for (var key in foodsObject) {
+      if (foodsObject.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  };
+
   // Pay Helper
   $(function() {
     const navTotal = $(".navTotal");
-    if (arr.length === 0) {
+    if (empty) {
       navTotal.hide();
     } else {
       navTotal.show();
@@ -46,46 +55,46 @@ $(document).ready(function() {
 
   //Shopping Basket =================
   //Load foods object from API
-    // const loadProducts = function() {
-    //   $.get('/api/foods')
-    //     .then(function(results) {
-    //       renderShoppingCart(results.products, array);
-    //       cartTotal(results.products, array);
-    //     });
-    // };
+  // const loadProducts = function() {
+  //   $.get('/api/foods')
+  //     .then(function(results) {
+  //       renderShoppingCart(results.products, array);
+  //       cartTotal(results.products, array);
+  //     });
+  // };
 
-    renderShoppingCart = function(foodsObject, cart) {
-      $('.shopping-cart').empty();
-      cart.forEach((element) => {
-        renderShoppingCartItem(foodsObject, cart[element - 1] );
-      });
-    }
+  renderShoppingCart = function(foodsObject, cart) {
+    $('.shopping-cart').empty();
+    cart.forEach((element) => {
+      renderShoppingCartItem(foodsObject, cart[element - 1]);
+    });
+  }
 
-      //Calculate Order Helper
+  //Calculate Order Helper
 
   cartTotal = function(foodsObject, array) {
-    console.log("cartTotal array: ", array)
+    console.log("cartTotal array: ", array);
 
-    const cartTotalTarget = $('#cart-total')
+    const cartTotalTarget = $('#cart-total');
 
-      if (array === null) {
-        cartTotalTarget.text(0)
-      } else {
+    if (array === null) {
+      cartTotalTarget.text(0);
+    } else {
 
       const calcTotal = function(array) {
         let total = 0;
-        console.log("foodsObject: ", foodsObject)
+        console.log("foodsObject: ", foodsObject);
 
-      for (let ele in array) {
-          console.log("calcTotal Array ele: ", array[ele])
+        for (let ele in array) {
+          console.log("calcTotal Array ele: ", array[ele]);
           total += foodsObject[array[ele]].price;
-      }
-      return total;
-      }
+        }
+        return total;
+      };
       // cartTotalTarget.text(calcTotal(array));
     }
   };
-    // loadProducts();
+  // loadProducts();
 });
 
 

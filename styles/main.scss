@@ -44,8 +44,6 @@ $color-yellow: #f4eeb0;
 }
 
 .right-sidebar {
-  margin: 80px auto 0;
-
   @include breakpoint (sm) {
   display: block;
 
@@ -81,7 +79,9 @@ H1 {
   margin-left: auto;
 }
 
-
+.order {
+  width: 30%;
+}
 
 body {
   margin: none;
