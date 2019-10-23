@@ -8,7 +8,10 @@ const client = require('twilio')(accountSid, authToken);
 const orderReceivedMessage = `SkipTheCooking thanks you from you order from 🥧s & 🍟s. Your order will be ready in ⏱️25 minutes.`;
 
 
-const sendMessage = function() {
+
+
+
+const sendMessage = function(message) {
   client.messages
     .create({
       body: orderReceivedMessage,

@@ -64,13 +64,9 @@ $(document).ready(function() {
     </section>
     `;
 
-
-
     $($product).append(markup);
     return $product;
   };
-
-
 
   // SHOW/HIDE right div
   $(function() {
@@ -127,9 +123,25 @@ $(document).ready(function() {
     $.post('/addToCart', shoppingCart, (response) => {
       renderShoppingCart(products, response.cart);
       cartTotal(products, response.cart);
-
+      console.log("Response :", response.cart);
+      console.log("Products :", products);
     })
-      // .then((response) => { renderShoppingCart(products, response.cart)})
-      // .then((response) => { cartTotal(products, response.cart) })
+    // .then((response) => { renderShoppingCart(products, response.cart)})
+    // .then((response) => { cartTotal(products, response.cart) })
   };
+
+
+
+
+
+
+
+
+
+
+
 });
+
+
+
+

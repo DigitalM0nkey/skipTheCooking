@@ -1,5 +1,6 @@
 // load .env data into process.env
 require('dotenv').config();
+//const data = require('./db/database');
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -45,6 +46,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const foodsRoutes = require("./routes/foods");
 const sendSms = require("./routes/sendSms");
+const helper = require("./db/helpers");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -85,3 +87,61 @@ app.post("/addToCart", (req, res) => {
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);
 });
+
+//DATBASE CALLS
+
+const foodQuery = () => {
+  db.query('SELECT * FROM foods;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    db.end();
+  });
+};
+
+//foodQuery();
+
+const createOrder = function(userID) {
+  const text = `INSERT INTO orders(user_id, timestamp) VALUES(${userID},  NOW()) RETURNING id`;
+  db.query(text)
+    .then(res => console.log(res.rows[0]))
+    .catch(err => console.log('OH NO orderedItems ', err.stack)
+    );
+};
+
+//createOrder(3);
+
+const sendToDatabase = (foodId, orderId, qty) => {
+  let queryText = `INSERT INTO ordered_items(food_id,order_id,qty) VALUES(${parseInt(foodId)},${orderId},${qty}) RETURNING id;`;
+
+  return db.query(queryText);
+
+};
+
+
+const orderedItems = function(orderId, cookie) {
+  let cookieObj = helper.countArray(cookie);
+  console.log("cookieOBJ = ", cookieObj);
+
+  let promises = [];
+
+  for (const foodId in cookieObj) {
+    let std = sendToDatabase(foodId, orderId, cookieObj[foodId]);
+    promises.push(std);
+    std.then(res => console.log("rows = ", res.rows[0]));
+  }
+
+  Promise.all(promises)
+    .then(() => {
+      console.log("Promises complete");
+    })
+    .catch(err => console.log('OH NO orderedItems ', err.stack));
+
+
+};
+
+
+
+
+orderedItems(3, ['1', '1', '3', '5', '5']);
