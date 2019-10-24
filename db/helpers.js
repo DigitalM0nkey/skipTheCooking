@@ -14,14 +14,25 @@ module.exports = (db) => {
     });
   };
 
-
-
   const countArray = (cookie) => {
     let count = {};
     cookie.forEach(function(i) {
       count[i] = (Number(count[i]) || 0) + 1;
     });
     return count;
+  };
+
+
+  const calcTotal = function(foodsObject, cart) {
+    let total = 0;
+    //displayTotalInNav();
+    cart.forEach(id => {
+      const itemValue = foodsObject.find(e => {
+        return String(e.id) === String(id);
+      });
+      total += itemValue.price;
+    });
+    return total;
   };
 
 
@@ -32,6 +43,6 @@ module.exports = (db) => {
       });
   };
 
-  return { maxCookTime, getAllFoods, countArray };
+  return { maxCookTime, getAllFoods, countArray, calcTotal };
 };
 

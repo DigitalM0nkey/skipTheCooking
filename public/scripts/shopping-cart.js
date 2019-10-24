@@ -75,6 +75,7 @@ $(document).ready(function() {
 
   //Calculate Order Helper
   const calcTotal = function(foodsObject, array) {
+    $('.cart-total').empty();
     let total = 0;
     displayTotalInNav();
     array.forEach(id => {

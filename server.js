@@ -64,15 +64,15 @@ app.post("/send_sms", () => {
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   helper.getAllFoods()
-    .then((products) => res.render("index", { cart: req.session.cart, products: products }));
-  // console.log("foodsObj", products);
-  // let templateVars = { cart: req.session.cart, foods: foodsObj };
-  // console.log("req cart: ", req.session.cart);
-  // res.render("index", templateVars);
+    .then((products) => {
+      const calcTotal = helper.calcTotal(products, req.session.cart);
+      res.render("index", {
+        cart: req.session.cart, products: products, calcTotal: calcTotal
+      });
+    });
 });
 
 app.get('/login/:id', (req, res) => {
-
   req.session.user_id = req.params.id;
   res.redirect('/');
 });
@@ -116,6 +116,7 @@ app.post("/addToCart", (req, res) => {
   }
   console.log("req session after all funcs: ", req.session.cart);
   res.json({ "cart": req.session.cart });
+  // res.redirect(req.originalUrl);
 });
 
 app.get("/clear-cart", (req, res) => {
