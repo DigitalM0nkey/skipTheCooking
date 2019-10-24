@@ -46,7 +46,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const foodsRoutes = require("./routes/foods");
 const sendSms = require("./routes/sendSms");
-const helper = require("./db/helpers");
+const helper = require("./db/helpers")(db);
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -84,16 +84,23 @@ app.post('/checkout', (req, res) => {
     })
     .catch(err => console.log('OH NO orderedItems ', err.stack)
     );
-  // This takes in the id from the other function
-  //orderedItems(newOrderId.id, req.session.cart);
-
 });
 
-// console.log('newOrderId = ', newOrderId);
-// console.log("herro", req.session.cart);
-// console.log("req Session", req.session);
 
 
+// const maxCookTime = (orderId) => {
+//   db.query(`
+//   SELECT MAX(cook_time)
+//   FROM foods
+//   JOIN ordered_items ON food_id = foods.id
+//   WHERE order_id = 28`, (err, res) => {
+//     if (err) throw err;
+//     for (let row of res.rows) {
+//       console.log(JSON.stringify(row));
+//     }
+//     db.end();
+//   });
+// };
 
 
 app.post("/addToCart", (req, res) => {
@@ -163,12 +170,19 @@ const orderedItems = function(orderId, cookie) {
 
   Promise.all(promises)
     .then(() => {
+      sendSms.sendMessage(sendSms.orderReceivedMessageStore(orderId));
+      helper.maxCookTime(orderId).then((cookTime) => {
+        console.log('THIS COOKTIME', cookTime);
+
+        sendSms.sendMessage(sendSms.orderReceivedMessageClient(cookTime.rows[0].max));
+      });
+
       console.log("Promises complete");
     })
     .catch(err => console.log('OH NO orderedItems ', err.stack));
 };
 
 
-
+// module.exports = maxCookTime;
 
 //orderedItems(3, ['1', '1', '3', '5', '5']);
