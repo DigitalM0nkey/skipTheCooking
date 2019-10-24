@@ -24,5 +24,14 @@ module.exports = (db) => {
     return count;
   };
 
-  return { maxCookTime, countArray };
+
+  const getAllFoods = function() {
+    return db.query(`SELECT * FROM foods;`)
+      .then(data => {
+        return data.rows;
+      });
+  };
+
+  return { maxCookTime, getAllFoods, countArray };
 };
+

@@ -21,7 +21,7 @@ VALUES
 INSERT INTO foods
   (item_name,description,price,image_url,cook_time )
 VALUES
-  ('Traditional Scottish Meat Pie', 'This mince meat pie is so flavorful even our picky eaters liked it!', 9.50 , 'https://kimberlycstarr.com/wp-content/uploads/2018/03/deliciously-simple-traditional-scottish-meat-pies-SW-Share-720x405.jpg', 35);
+  ('Traditional Scottish Meat Pie', 'This mince meat pie is so flavorful even our picky eaters liked it!', 9.50 , 'https://www.scottishfield.co.uk/wp-content/uploads/sites/101/2019/03/QMS_TradSteakPie_HIRES_PORT_001-978x624.jpg', 35);
 
 INSERT INTO foods
   (item_name,description,price,image_url,cook_time )

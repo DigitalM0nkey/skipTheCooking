@@ -63,7 +63,12 @@ app.post("/send_sms", () => {
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  helper.getAllFoods()
+    .then((products) => res.render("index", { cart: req.session.cart, products: products }));
+  // console.log("foodsObj", products);
+  // let templateVars = { cart: req.session.cart, foods: foodsObj };
+  // console.log("req cart: ", req.session.cart);
+  // res.render("index", templateVars);
 });
 
 app.get('/login/:id', (req, res) => {
@@ -185,3 +190,6 @@ const orderedItems = function(orderId, cookie) {
 // module.exports = maxCookTime;
 
 //orderedItems(3, ['1', '1', '3', '5', '5']);
+
+
+

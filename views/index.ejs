@@ -93,6 +93,16 @@
         <br>
         <div class="shopping-cart-container">
           <!-- Stuff will go in here -->
+          <%
+          cart.forEach((element) => {  %>
+          <article class="order">
+            <div class="item">
+              <h6><%= products[element - 1].item_name %></h6>
+              <h6><i class="fad fa-dollar-sign"></i><%= products[element -1 ].price %></h6>
+            </div>
+          </article>
+          <% }); %>
+
         </div>
         <span class="divider"></span>
         <div class="total">
