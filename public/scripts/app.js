@@ -7,7 +7,7 @@ $(document).ready(function() {
   const loadProducts = function() {
     $.get('/api/foods')
       .then(function(results) {
-        renderProducts(results.products)
+        renderProducts(results.products);
         products = results.products;
       });
   };
@@ -18,8 +18,12 @@ $(document).ready(function() {
     products.forEach(item => {
       const el = createProductElement(item);
 
-      $('.product-container').append(el)
-      $(`#${item.id}.shopping-add`).click(() => addItemToCart(item.id)) //event handler for each card
+      $('.product-container').append(el);
+      const button = $(`#${item.id}.shopping-add`);
+      button.click(() => {
+
+        addItemToCart(item.id);
+      }); //event handler for each card
     });
   };
   // Create individual products
@@ -122,6 +126,9 @@ $(document).ready(function() {
 
     $.post('/addToCart', shoppingCart, (response) => {
       renderShoppingCart(products, response.cart);
+      if (!response.cart) {
+        console.log(`!response.cart: ${response}`)
+      }
       cartTotal(products, response.cart);
       console.log("Response :", response.cart);
       console.log("Products :", products);

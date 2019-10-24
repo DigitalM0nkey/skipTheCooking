@@ -8,6 +8,9 @@ let renderShoppingCartItem = function(foodsObject, item) {
   item = item - 1; //call the correct object element
 
   let cart = $('.shopping-cart-container');
+  if (!foodsObject[item].item_name) {
+    console.log(`foodsObject[item].item_name problem. item: ${item}, foodsObject[item]: ${foodsObject}[item]`);
+  }
   let name = foodsObject[item].item_name;
   let price = foodsObject[item].price;
 
@@ -68,10 +71,13 @@ $(document).ready(function() {
 
   renderShoppingCart = function(foodsObject, cart) {
     $('.shopping-cart-container').empty();
-    cart.forEach((element) => {
-      renderShoppingCartItem(foodsObject, cart[element - 1]);
+    cart.forEach((element, i) => {
+      if (!cart || cart.length === 0) {
+        console.log('Cart is undefined or zero:', cart)
+      }
+      renderShoppingCartItem(foodsObject, cart[i]);
     });
-  }
+  };
 
   //Calculate Order Helper
   const calcTotal = function(foodsObject, array) {
@@ -80,9 +86,9 @@ $(document).ready(function() {
     displayTotalInNav();
     array.forEach(id => {
       const itemValue = foodsObject.find(e => {
-        return String(e.id) === String(id)
+        return String(e.id) === String(id);
       })
-      total += itemValue.price
+      total += itemValue.price;
     })
     return $('.cart-total').text(total);
   };
