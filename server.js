@@ -11,7 +11,6 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
-const async = require('async');
 
 app.use(cookieSession({
   name: 'session',
