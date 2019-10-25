@@ -63,6 +63,9 @@ app.use("/api/cart", cart(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  if (req.session.user_id === undefined) {
+    req.session.user_id = 2;
+  }
   helper.getAllFoods()
     .then((data) => {
       let myCart = req.session.cart || [];
