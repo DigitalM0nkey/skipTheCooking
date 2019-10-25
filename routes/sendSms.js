@@ -22,19 +22,17 @@ const orderReceivedMessageClient = (cookTime) => {
 
 
 
-const sendMessage = function(message) {
+const sendMessage = function(message, phoneNumber) {
   console.log("SMS MESSAGE: ", message);
 
   client.messages
     .create({
       body: message,
       from: process.env.DEV_OUTGOING_PHONE_NUMBER,
-      to: process.env.TEST_PHONE_NUMBER
+      to: phoneNumber ? phoneNumber : process.env.TEST_PHONE_NUMBER
     })
     .then(message => console.log(message.sid))
     .catch(err => console.log('ERROR', err));
 };
-
-//sendMessage();
 
 module.exports = { sendMessage, orderReceivedMessageStore, orderReceivedMessageClient };

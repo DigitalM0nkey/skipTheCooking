@@ -112,20 +112,23 @@
         </div>
         <!-- END Dyanamic Cart -->
         <form action='/checkout' method="post">
-          <button type="submit" id="pay" class="checkout btn btn-secondary btn-block"><i
+          <button type="submit" id="buy" class="checkout btn btn-secondary btn-block"><i
               class="fad fa-cash-register"></i>
             CHECKOUT</button>
-        </form>
-        <div class="form-check notify">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <i class="fad fa-bell"></i>
-          <label class="form-check-label" for="defaultCheck1">
-            NOTIFY ME
-          </label>
-        </div>
 
+          <div class="form-check notify">
+
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <i class="fad fa-bell"></i>
+            <label class="form-check-label" for="defaultCheck1">
+              NOTIFY ME
+            </label>
+
+          </div>
+          <div><input id='phoneNumber' name="pn" class="phoneInput" type="text" placeholder="10 Digit Phone Number"></i>
+          </div>
       </div>
-
+      </form>
     </div>
 
   </main>

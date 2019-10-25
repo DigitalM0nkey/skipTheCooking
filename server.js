@@ -53,7 +53,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/foods", foodsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-//app.use("/send_sms", sendSms.sendMessage());
+
 // Note: mount other resources here, using the same pattern above
 
 app.post("/send_sms", () => {
@@ -81,12 +81,13 @@ app.get('/login/:id', (req, res) => {
 
 app.post('/checkout', (req, res) => {
   // This returns an ID#
+
   const newOrderId = createOrder(req.session.user_id)
     .then(resultOfCreateOrder => {
-      console.log(resultOfCreateOrder);
-      orderedItems(resultOfCreateOrder.rows[0].id, req.session.cart);
+      let phone = req.body.pn;
+      orderedItems(resultOfCreateOrder.rows[0].id, req.session.cart, phone);
     })
-    .catch(err => console.log('OH NO orderedItems ', err.stack)
+    .catch(err => console.log('OH NO checkout ', err.stack)
     );
 });
 
@@ -120,37 +121,20 @@ app.post("/addToCart", (req, res) => {
 });
 
 app.get("/clear-cart", (req, res) => {
-  console.log("clear cart now!")
-  console.log("cart before clear", req.session.cart);
   req.session.cart = [];
   res.redirect("/");
-  console.log("cart after clear", req.session.cart);
 });
 
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);
 });
 
-//DATBASE CALLS
-
-// const foodQuery = () => {
-//   db.query('SELECT * FROM foods;', (err, res) => {
-//     if (err) throw err;
-//     for (let row of res.rows) {
-//       console.log(JSON.stringify(row));
-//     }
-//     db.end();
-//   });
-// };
-
-//foodQuery();
 
 const createOrder = function(userID) {
   const text = `INSERT INTO orders(user_id, timestamp) VALUES(${userID},  NOW()) RETURNING id`;
   return db.query(text);
 };
 
-//createOrder(3);
 
 const sendToDatabase = (foodId, orderId, qty) => {
   let queryText = `INSERT INTO ordered_items(food_id,order_id,qty) VALUES(${parseInt(foodId)},${orderId},${qty}) RETURNING id;`;
@@ -161,7 +145,7 @@ const sendToDatabase = (foodId, orderId, qty) => {
 };
 
 
-const orderedItems = function(orderId, cookie) {
+const orderedItems = function(orderId, cookie, phoneNumber) {
   let cookieObj = helper.countArray(cookie);
   console.log("cookieOBJ = ", cookieObj);
 
@@ -177,20 +161,12 @@ const orderedItems = function(orderId, cookie) {
     .then(() => {
       sendSms.sendMessage(sendSms.orderReceivedMessageStore(orderId));
       helper.maxCookTime(orderId).then((cookTime) => {
-        console.log('THIS COOKTIME', cookTime);
-
-        sendSms.sendMessage(sendSms.orderReceivedMessageClient(cookTime.rows[0].max));
+        sendSms.sendMessage(sendSms.orderReceivedMessageClient(cookTime.rows[0].max), phoneNumber);
       });
-
-      console.log("Promises complete");
     })
     .catch(err => console.log('OH NO orderedItems ', err.stack));
 };
 
-
-// module.exports = maxCookTime;
-
-//orderedItems(3, ['1', '1', '3', '5', '5']);
 
 
 
