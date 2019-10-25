@@ -27,17 +27,13 @@ $color-yellow: #f4eeb0;
   }
 }
 
-// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
 
 .left-sidebar {
 @include breakpoint(xs) {
-  //display: none;
 }
   @include breakpoint(sm){
-    //display: block;
   }
   @include breakpoint(md) {
-    //display: block;
   }
   display: none;
   background-color: $color-green;
@@ -49,7 +45,6 @@ $color-yellow: #f4eeb0;
 
   }
   @include breakpoint(md) {
-   // display: block;
   }
   width: 75rem;
   display: none;
@@ -79,33 +74,14 @@ H1 {
   margin-left: auto;
 }
 
-#phoneNumber {
-  display: none;
-  width: 100%;
-  margin-top: 1rem;
-  border: 1rem;
-}
-
 .order {
   width: 30%;
+  align-items: center;
 }
 
 body {
   margin: none;
 }
-// @include media-breakpoint-up(sm) {  }
-// @include media-breakpoint-up(md) {  }
-// @include media-breakpoint-up(lg) {  }
-// @include media-breakpoint-up(xl) {  }
 
-// Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
-// .custom-class {
-//   display: none;
-// }
-// @include media-breakpoint-up(sm) {
-//   .custom-class {
-//     display: block;
-//   }
-// }
 
 
