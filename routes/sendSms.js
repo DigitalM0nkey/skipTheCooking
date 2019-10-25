@@ -5,8 +5,8 @@ const { Client } = require('pg');
 const dbParams = require('../lib/db');
 const db = new Client(dbParams);
 
-const accountSid = process.env.DEV_TWILIO_ACCOUNT_SID;
-const authToken = process.env.DEV_TWILIO_AUTH_TOKEN;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require('twilio')(accountSid, authToken);
 
@@ -15,15 +15,10 @@ const orderReceivedMessageStore = (orderId) => {
 };
 
 const orderReceivedMessageClient = (cookTime) => {
-  console.log("COOKTIME:", cookTime);
-
   return `SkipTheCooking thanks you for your order from 🥧s & 🍟s.Your order will be ready in ⏱ ${cookTime} minutes.`;
 };
 
-
-
 const sendMessage = function(message, phoneNumber) {
-  console.log("SMS MESSAGE: ", message);
 
   client.messages
     .create({

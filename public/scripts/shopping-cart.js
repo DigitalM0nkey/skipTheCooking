@@ -30,15 +30,6 @@ let cartTotal;
 
 $(document).ready(function() {
 
-  // let empty = function isEmpty(foodsObject) {
-  //   tempvalue = false;
-  //   for (var key in foodsObject) {
-  //     if (foodsObject.hasOwnProperty(key))
-  //       return false;
-  //   }
-  //   return true;
-  // };
-
   // Display total in navbar
   const displayTotalInNav = () => {
     $(function() {
@@ -60,14 +51,6 @@ $(document).ready(function() {
   });
 
   //Shopping Basket =================
-  //Load foods object from API
-  // const loadProducts = function() {
-  //   $.get('/api/foods')
-  //     .then(function(results) {
-  //       renderShoppingCart(results.products, array);
-  //       cartTotal(results.products, array);
-  //     });
-  // };
 
   renderShoppingCart = function(foodsObject, cart) {
     $('.shopping-cart-container').empty();

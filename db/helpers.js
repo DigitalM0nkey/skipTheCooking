@@ -8,9 +8,7 @@ module.exports = (db) => {
         WHERE order_id = ${orderId}`, (err, res) => {
       if (err) throw err;
       for (let row of res.rows) {
-        console.log('JSON.stringify(row):', JSON.stringify(row));
       }
-      // db.end();
     });
   };
 
@@ -25,7 +23,7 @@ module.exports = (db) => {
 
   const calcTotal = function(foodsObject, cart) {
     let total = 0;
-    //displayTotalInNav();
+    //displayTotalInNav(); TO IMPLEMENT LATER
     cart.forEach(id => {
       const itemValue = foodsObject.find(e => {
         return String(e.id) === String(id);
@@ -34,7 +32,6 @@ module.exports = (db) => {
     });
     return total;
   };
-
 
   const getAllFoods = function() {
     return db.query(`SELECT * FROM foods;`)

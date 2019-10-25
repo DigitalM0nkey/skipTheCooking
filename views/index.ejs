@@ -87,7 +87,7 @@
       <div class="shopping-cart">
         <div class="shopping-cart-header">
           <!-- <i class="fad fa-shopping-cart"> </i>  -->
-          Shopping Cart<a href="/clear-cart">Clear Cart</a>
+          Shopping Cart<a href="/api/cart/clear-cart">Clear Cart</a>
 
         </div>
         <br>
@@ -111,7 +111,7 @@
           </p>
         </div>
         <!-- END Dyanamic Cart -->
-        <form action='/checkout' method="post">
+        <form action='/api/cart/checkout' method="post">
           <button type="submit" id="buy" class="checkout btn btn-secondary btn-block"><i
               class="fad fa-cash-register"></i>
             CHECKOUT</button>
