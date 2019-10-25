@@ -89,23 +89,8 @@ app.post('/checkout', (req, res) => {
     })
     .catch(err => console.log('OH NO checkout ', err.stack)
     );
+  res.redirect('/clear-cart');
 });
-
-
-
-// const maxCookTime = (orderId) => {
-//   db.query(`
-//   SELECT MAX(cook_time)
-//   FROM foods
-//   JOIN ordered_items ON food_id = foods.id
-//   WHERE order_id = 28`, (err, res) => {
-//     if (err) throw err;
-//     for (let row of res.rows) {
-//       console.log(JSON.stringify(row));
-//     }
-//     db.end();
-//   });
-// };
 
 
 app.post("/addToCart", (req, res) => {
@@ -117,7 +102,6 @@ app.post("/addToCart", (req, res) => {
   }
   console.log("req session after all funcs: ", req.session.cart);
   res.json({ "cart": req.session.cart });
-  // res.redirect(req.originalUrl);
 });
 
 app.get("/clear-cart", (req, res) => {
