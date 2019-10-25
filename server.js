@@ -65,9 +65,10 @@ app.use("/api/cart", cart(db));
 app.get("/", (req, res) => {
   helper.getAllFoods()
     .then((data) => {
-      const calcTotal = helper.calcTotal(data, req.session.cart);
+      let myCart = req.session.cart || [];
+      const calcTotal = helper.calcTotal(data, myCart);
       res.render("index", {
-        cart: req.session.cart, products: data, calcTotal: calcTotal
+        cart: myCart, products: data, calcTotal: calcTotal
       });
     })
     .catch((err) => console.log("error in the index file oh dear", err));
