@@ -64,12 +64,14 @@ app.post("/send_sms", () => {
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   helper.getAllFoods()
-    .then((products) => {
-      const calcTotal = helper.calcTotal(products, req.session.cart);
+    .then((data) => {
+      console.log("i got all the foodz", data);
+      const calcTotal = helper.calcTotal(data, req.session.cart);
       res.render("index", {
-        cart: req.session.cart, products: products, calcTotal: calcTotal
+        cart: req.session.cart, products: data, calcTotal: calcTotal
       });
-    });
+    })
+    .catch((err) => console.log("error in the index file oh dear", err));
 });
 
 app.get('/login/:id', (req, res) => {
@@ -82,14 +84,18 @@ app.get('/login/:id', (req, res) => {
 app.post('/checkout', (req, res) => {
   // This returns an ID#
 
-  const newOrderId = createOrder(req.session.user_id)
+  createOrder(req.session.user_id)
     .then(resultOfCreateOrder => {
       let phone = req.body.pn;
-      orderedItems(resultOfCreateOrder.rows[0].id, req.session.cart, phone);
+      orderedItems(resultOfCreateOrder.rows[0].id, req.session.cart, phone, () => {
+        console.log("I'm going to redirect now!");
+        req.session.cart = [];
+        res.redirect('/');
+      });
     })
     .catch(err => console.log('OH NO checkout ', err.stack)
     );
-  res.redirect('/clear-cart');
+
 });
 
 
@@ -122,14 +128,13 @@ const createOrder = function(userID) {
 
 const sendToDatabase = (foodId, orderId, qty) => {
   let queryText = `INSERT INTO ordered_items(food_id,order_id,qty) VALUES(${parseInt(foodId)},${orderId},${qty}) RETURNING id;`;
-  console.log("quesryText = ", queryText);
 
   return db.query(queryText);
 
 };
 
 
-const orderedItems = function(orderId, cookie, phoneNumber) {
+const orderedItems = function(orderId, cookie, phoneNumber, cb) {
   let cookieObj = helper.countArray(cookie);
   console.log("cookieOBJ = ", cookieObj);
 
@@ -143,9 +148,14 @@ const orderedItems = function(orderId, cookie, phoneNumber) {
 
   Promise.all(promises)
     .then(() => {
+      console.log("I am going to cb now");
+
       sendSms.sendMessage(sendSms.orderReceivedMessageStore(orderId));
       helper.maxCookTime(orderId).then((cookTime) => {
+        cb();
+
         sendSms.sendMessage(sendSms.orderReceivedMessageClient(cookTime.rows[0].max), phoneNumber);
+
       });
     })
     .catch(err => console.log('OH NO orderedItems ', err.stack));

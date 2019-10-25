@@ -10,7 +10,7 @@ module.exports = (db) => {
       for (let row of res.rows) {
         console.log('JSON.stringify(row):', JSON.stringify(row));
       }
-      db.end();
+      // db.end();
     });
   };
 
@@ -40,7 +40,8 @@ module.exports = (db) => {
     return db.query(`SELECT * FROM foods;`)
       .then(data => {
         return data.rows;
-      });
+      })
+      .catch((err) => { console.log("caught an error in all foods:", err) });
   };
 
   return { maxCookTime, getAllFoods, countArray, calcTotal };
