@@ -72,6 +72,15 @@ $(document).ready(function() {
     return $product;
   };
 
+  // SHOW/HIDE phone Number field
+  $(() => {
+    $('#notifyMe').click(function() {
+      $("#phoneNumber").toggle(this.checked).focus();
+    });
+  });
+
+
+
   // SHOW/HIDE right div
   $(function() {
     const rb = $(".rb");
@@ -97,12 +106,12 @@ $(document).ready(function() {
     $.post('/api/cart/addToCart', shoppingCart, (response) => {
       renderShoppingCart(products, response.cart);
       if (!response.cart) {
-        console.log(`!response.cart: ${response}`)
+        console.log(`!response.cart: ${response}`);
       }
       cartTotal(products, response.cart);
       console.log("Response :", response.cart);
       console.log("Products :", products);
-    })
+    });
   };
 
 

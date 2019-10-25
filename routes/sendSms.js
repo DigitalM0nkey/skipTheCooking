@@ -23,7 +23,7 @@ const sendMessage = function(message, phoneNumber) {
   client.messages
     .create({
       body: message,
-      from: process.env.DEV_OUTGOING_PHONE_NUMBER,
+      from: process.env.OUTGOING_PHONE_NUMBER,
       to: phoneNumber ? phoneNumber : process.env.TEST_PHONE_NUMBER
     })
     .then(message => console.log(message.sid))
