@@ -18,7 +18,7 @@ let renderShoppingCartItem = function(foodsObject, item) {
     <article class="order">
       <div class="item">
        <h6>${name}</h6>
-       <h6><i class="fad fa-dollar-sign"></i>${price}</h6>
+       <h6>$${price}</h6>
         </div>
     </article>
     `
