@@ -1,5 +1,5 @@
 // load .env data into process.env
-require('dotenv').config();
+require("dotenv").config({ silent: true });
 //const data = require('./db/database');
 
 // Web server config
@@ -9,34 +9,39 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
-const morgan = require('morgan');
-const cookieSession = require('cookie-session');
+const morgan = require("morgan");
+const cookieSession = require("cookie-session");
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ["goddog"],
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["goddog"],
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+);
 
 // PG database client/connection setup
-const { Client } = require('pg');
-const dbParams = require('./lib/db.js');
+const { Client } = require("pg");
+const dbParams = require("./lib/db.js");
 const db = new Client(dbParams);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
-  debug: true,
-  outputStyle: 'expanded'
-}));
+app.use(
+  "/styles",
+  sass({
+    src: __dirname + "/styles",
+    dest: __dirname + "/public/styles",
+    debug: true,
+    outputStyle: "expanded",
+  })
+);
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -66,25 +71,25 @@ app.get("/", (req, res) => {
   if (req.session.user_id === undefined) {
     req.session.user_id = 2;
   }
-  helper.getAllFoods()
+  helper
+    .getAllFoods()
     .then((data) => {
       let myCart = req.session.cart || [];
       const calcTotal = helper.calcTotal(data, myCart);
       res.render("index", {
-        cart: myCart, products: data, calcTotal: calcTotal
+        cart: myCart,
+        products: data,
+        calcTotal: calcTotal,
       });
     })
     .catch((err) => console.log("error in the index file oh dear", err));
 });
 
-app.get('/login/:id', (req, res) => {
+app.get("/login/:id", (req, res) => {
   req.session.user_id = req.params.id;
-  res.redirect('/');
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {
   console.log(`skipTheCooking app listening on port ${PORT}`);
 });
-
-
-
