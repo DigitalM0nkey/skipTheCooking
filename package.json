@@ -20,6 +20,7 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "libq": "^0.0.8",
     "morgan": "^1.9.1",
     "node-sass-middleware": "^1.0.1",
     "pg": "^6.4.2",
